@@ -1,0 +1,67 @@
+10/05/20 - Time and Space Complexity
+
+From now on, for CodeSignal challenges: We can use whatever language we want
+    -- The focus is on problem-solving, not python3 syntax :)
+
+Why do we have Big O notation?
+    -- To evaluate performance
+    -- To find out the time it takes to complete a function (relative to other input sizes)
+    -- Different computers run at different speeds
+
+    -- because we care about efficiency
+
+Runtime Complexity
+        0(1) -- Linear
+        0(n^2) -- Quadratic
+        0(1) -- Constant
+            performance doesn't change no matter how much input
+        0(log n) -- Logarithmic
+            in computers, log is base 2 normally
+            every time we double the input size, we only add one step
+            we divide by 2 until we get 1
+            if n is 8, so it would be 3 times
+            if n is 16, it would be 4 times, etc
+        0(2^n) -- Exponential
+        0(n!) -- Factorial
+        0(n log n) -- Linearithmic
+
+    Examples from Canvas: Classify
+        -- see big_o.py
+    
+    To classify, go line by line
+    Take the most significant part
+    It's about the worst case scenario
+
+    So for time complexity, we basically go through each line of code and decide how many steps each line would generate, then our classification is the classification of the line that produces the most steps
+        -- out of all the lines, choose the one that has the largest classification
+        -- if you have lines of O(1), O(N), O(1), and O(n^2), the overall classification is O(n^2)
+    
+    Looking at how long it takes the code to run as you increase n can also help you classify
+    
+    Classifications do not need to be exact
+        -- O(5N + 14) can be simplified to O(N)
+
+    If there are loops inside of loops, all the inside loop is run (inside_classification * outside_classification)
+        -- since everytime the outer loop runs, the inner loop goes through all its iterations
+
+    Quadratic classifications usually happen when there are nested loops
+
+    
+Space Complexity
+    How much additional space your algorithm uses - ignoring the inputs
+
+    Same type of thing as runtime complexity
+
+
+In-Place: not allocating extra space - not making/defining new data structures to solve the problem
+
+Out-of-Place: allocating extra space - making/defining new data structures to solve the problem
+
+It's generally better to have a shorter runtime than smaller space complexity
+
+Space and Time Complexities have the same classifications
+
+Sorting is usually O(n log n)
+
+If you don't save a new data structure to a variable it does not affect the space complexity, because it is not using any additional space
+    -- so if nothing else is affecting the space complexity, the space is O(1)
